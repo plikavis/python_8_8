@@ -50,14 +50,13 @@ class Cart:
 
     def __init__(self):
         # По-умолчанию корзина пустая
-        self.products = {}  #empty
+        self.products = {}
 
     def add_product(self, product: Product, buy_count=1):
         """
         Метод добавления продукта в корзину.
         Если продукт уже есть в корзине, то увеличиваем количество
         """
-        # product = Product("book", 100, "This is a book", 1000)
         keys = self.products.keys()  # ключи для корзины Product
         if product in keys:
             self.products[product] += buy_count
@@ -72,7 +71,8 @@ class Cart:
         Если remove_count не передан, то удаляется вся позиция
         Если remove_count больше, чем количество продуктов в позиции, то удаляется вся позиция
         """
-        if remove_count is None or remove_count >= self.products[product]: # если равно, то есть смысл тоже удалить всю позицию
+        if remove_count is None or remove_count >= self.products[product]:
+            # если равно, то нужно тоже удалить всю позицию
             del self.products[product]
         else:
             self.products[product] -= remove_count
@@ -99,24 +99,3 @@ class Cart:
             else:
                 raise ValueError(f'Нет столько {product.name} на складе')
         self.clear()
-
-
-# if __name__ == '__main__':
-#     # a = Product("book", 100, "This is a book", 10)
-#     # new = Product("notebook", 10, "This is a notebook", 10)
-#     # b = Cart()
-#     # b.add_product(new)
-#     # b.buy()
-#     # # try:
-#     # #     b.buy()
-#     # # except ValueError as e:
-#     # #     d = b.remove_product(a, 3)
-#     # # print(b.products.items())
-#     # a = 5
-#     # b = a
-#     # a = 4
-#     # print(b)
-#     a = [1, 2, 3]
-#     b = a
-#     a.append(4)
-#     print(b)

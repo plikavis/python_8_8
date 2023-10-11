@@ -53,6 +53,7 @@ def cart_new():
     cart_new.products = {Product("magazine", 10, "This is a magazine", 500): 1}
     return cart_new
 
+
 @pytest.fixture
 def cart_over_quantity(product):
     cart_over_quantity = Cart()
@@ -140,24 +141,3 @@ class TestCart:
         """
         with pytest.raises(ValueError):
             cart_over_quantity.buy()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
